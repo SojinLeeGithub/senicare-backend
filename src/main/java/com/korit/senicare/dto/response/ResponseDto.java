@@ -44,8 +44,19 @@ public class ResponseDto {
 
     }
 
+    public static ResponseEntity<ResponseDto> signInFail() {
+        ResponseDto responseBody = new ResponseDto(ResponseCode.SIGN_IN_FAIL, ResponseMessage.SIGN_IN_FAIL);
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(responseBody);
+
+    }
+
     public static ResponseEntity<ResponseDto> messageSendFail() {
         ResponseDto responseBody = new ResponseDto(ResponseCode.MESSAGE_SEND_FAIL,  ResponseMessage.MESSAGE_SEND_FAIL);
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(responseBody);
+    }
+
+    public static ResponseEntity<ResponseDto> tokenCreateFail() {
+        ResponseDto responseBody = new ResponseDto(ResponseCode.TOKEN_CREATE_FAIL,  ResponseMessage.TOKEN_CREATE_FAIL);
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(responseBody);
     }
 
