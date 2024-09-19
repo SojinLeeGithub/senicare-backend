@@ -9,7 +9,6 @@ import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.korit.senicare.common.object.CustomOAuth2User;
 import com.korit.senicare.entity.NurseEntity;
 import com.korit.senicare.provider.JwtProvider;
@@ -45,10 +44,10 @@ public class OAuth2UserServiceImplement extends DefaultOAuth2UserService {
         
         CustomOAuth2User customOAuth2User = null;
         if (nurseEntity == null) {
-        Map<String, Object> attributes = new HashMap<>();
-        attributes.put("snsId", snsId);
-        attributes.put("joinPath", registration);
-        customOAuth2User = new CustomOAuth2User(snsId,attributes, false);
+            Map<String, Object> attributes = new HashMap<>();
+            attributes.put("snsId", snsId);
+            attributes.put("joinPath", registration);
+            customOAuth2User = new CustomOAuth2User(snsId,attributes, false);
 
 
         } else { 

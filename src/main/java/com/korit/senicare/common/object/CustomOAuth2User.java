@@ -20,7 +20,7 @@ public class CustomOAuth2User implements OAuth2User {
         this.name = name;
         this.attributes = attributes;
         this.authorities = AuthorityUtils.NO_AUTHORITIES;
-        this.existed = existed;
+        this.existed = isExisted;
     }
 
     @Override
