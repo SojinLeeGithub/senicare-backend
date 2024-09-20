@@ -2,11 +2,18 @@ package com.korit.senicare.service;
 
 import org.springframework.http.ResponseEntity;
 
+import com.korit.senicare.dto.request.tool.PatchToolRequestDto;
 import com.korit.senicare.dto.request.tool.PostToolRequestDto;
+import com.korit.senicare.dto.response.GetToolResponseDto;
 import com.korit.senicare.dto.response.ResponseDto;
+import com.korit.senicare.dto.response.tool.GetToolListResponseDto;
 
 public interface ToolService {
 
+    // 매서드
     ResponseEntity<ResponseDto> postTool(PostToolRequestDto dto);
-    
+    ResponseEntity<? super GetToolListResponseDto> getToolList();
+    ResponseEntity<? super GetToolResponseDto> getTool(Integer toolNumber);
+    ResponseEntity<ResponseDto> patchTool(Integer toolNumber, PatchToolRequestDto dto);
+    ResponseEntity<ResponseDto> deleteTool(Integer tooNumber);
 }

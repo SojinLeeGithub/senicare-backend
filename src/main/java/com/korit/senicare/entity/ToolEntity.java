@@ -1,5 +1,6 @@
 package com.korit.senicare.entity;
 
+import com.korit.senicare.dto.request.tool.PatchToolRequestDto;
 import com.korit.senicare.dto.request.tool.PostToolRequestDto;
 
 import jakarta.persistence.Entity;
@@ -29,10 +30,19 @@ public class ToolEntity {
     private String purpose;
     private Integer count;
 
+    // tooNumber 상태 = null
     public ToolEntity(PostToolRequestDto dto) {
         this.name = dto.getName();
         this.purpose = dto.getPurpose();
         this.count = dto.getCount();
+    }
+
+    // tooNumber 상태 = 존재하는 값이 조회됨
+    public void patch(PatchToolRequestDto dto) {
+        this.name = dto.getName();
+        this.purpose = dto.getPurpose();
+        this.count = dto.getCount();
+
     }
 
     
