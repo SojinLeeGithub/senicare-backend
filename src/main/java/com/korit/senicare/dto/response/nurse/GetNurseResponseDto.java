@@ -1,6 +1,5 @@
 package com.korit.senicare.dto.response.nurse;
 
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
@@ -12,24 +11,20 @@ import com.korit.senicare.entity.NurseEntity;
 import lombok.Getter;
 
 @Getter
-public class GetSignInResponseDto extends ResponseDto {
-
+public class GetNurseResponseDto extends ResponseDto {
     private String userId;
     private String name;
-    private String telNumbr;
+    private String telNumber;
 
-    //(NurseEntity nurseEntity) : 굳이 하나하나 받아올 필요 없으므로 통으로 받아와서 코드를 단순화 하였다.
-    public GetSignInResponseDto(NurseEntity nurseEntity) {
+    private GetNurseResponseDto(NurseEntity nurseEntity) {
         super(ResponseCode.SUCCCESS, ResponseMessage.SUCCESS);
         this.userId = nurseEntity.getUserId();
         this.name = nurseEntity.getName();
-        this.telNumbr = nurseEntity.getTelNumber();
+        this.telNumber = nurseEntity.getTelNumber();
     }
 
-    public static ResponseEntity<GetSignInResponseDto> success(NurseEntity nurseEntity) {
-        GetSignInResponseDto responseBody = new GetSignInResponseDto(nurseEntity);
+    public static ResponseEntity<GetNurseResponseDto> success(NurseEntity nurseEntity) {
+        GetNurseResponseDto responseBody = new GetNurseResponseDto(nurseEntity);
         return ResponseEntity.status(HttpStatus.OK).body(responseBody);
-
     }
-    
 }

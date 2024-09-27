@@ -13,37 +13,35 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
-@AllArgsConstructor
-@NoArgsConstructor
 @Getter
 @Setter
-@Entity(name = "tools")
-@Table(name = "tools")
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity(name="tools")
+@Table(name="tools")
 public class ToolEntity {
-
+    
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer toolNumber;
-
     private String name;
     private String purpose;
     private Integer count;
 
-    // tooNumber 상태 = null
     public ToolEntity(PostToolRequestDto dto) {
         this.name = dto.getName();
         this.purpose = dto.getPurpose();
         this.count = dto.getCount();
     }
 
-    // tooNumber 상태 = 존재하는 값이 조회됨
     public void patch(PatchToolRequestDto dto) {
         this.name = dto.getName();
         this.purpose = dto.getPurpose();
         this.count = dto.getCount();
-
     }
 
-    
+    public void decreaseCount(Integer usedCount) {
+        this.count -= usedCount;
+    }
+
 }

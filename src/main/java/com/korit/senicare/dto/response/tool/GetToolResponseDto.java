@@ -1,8 +1,11 @@
-package com.korit.senicare.dto.response;
+package com.korit.senicare.dto.response.tool;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+import com.korit.senicare.dto.response.ResponseCode;
+import com.korit.senicare.dto.response.ResponseDto;
+import com.korit.senicare.dto.response.ResponseMessage;
 import com.korit.senicare.entity.ToolEntity;
 
 import lombok.Getter;
@@ -16,7 +19,7 @@ public class GetToolResponseDto extends ResponseDto {
     private Integer count;
 
     private GetToolResponseDto(ToolEntity toolEntity) {
-        super(ResponseCode.SUCCESS, ResponseMessage.SUCCESS);
+        super(ResponseCode.SUCCCESS, ResponseMessage.SUCCESS);
         this.toolNumber = toolEntity.getToolNumber();
         this.name = toolEntity.getName();
         this.purpose = toolEntity.getPurpose();

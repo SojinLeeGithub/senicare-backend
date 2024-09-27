@@ -20,7 +20,8 @@ public class SignInResponseDto extends ResponseDto {
     private SignInResponseDto(String accessToken) {
 
         // 부모 클래스에 빈 생성자가 없다면 super 사용해야 한다.
-        super(ResponseCode.SUCCESS, ResponseMessage.SUCCESS);
+
+        super(ResponseCode.SUCCCESS, ResponseMessage.SUCCESS);
         this.accessToken = accessToken;
         // 초단위로 표시(10시간 *  60분 * 60초)
         this.expiration = 10 * 60 * 60 ;
